@@ -14,6 +14,7 @@ public class Main {
         // setting a new name for your Nanobot
         nanobot.newName();
 
+        Nanobot nanotbot2 = new Nanobot("Nano straight", "Omega rare", "After party scene wallets", 9001, true);
 
         // creating instance of a Card class
         Card card = new Card();
