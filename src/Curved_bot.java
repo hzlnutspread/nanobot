@@ -1,2 +1,2 @@
-public class Curved_bot {
+public class CurvedBot {
 }
