@@ -5,14 +5,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner rarityScanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         // creating instance of Nanobot class
         Nanobot nanobot = new Nanobot("Nano Bot", "Omega rare", "After party scene wallets", 9001, true);
         System.out.println(nanobot.getName());
 
         // setting a new name for your Nanobot
-        nanobot.newName();
+        nanobot.newName(scanner);
 
         Nanobot nanotbot2 = new Nanobot("Nano straight", "Omega rare", "After party scene wallets", 9001, true);
 
@@ -31,30 +31,14 @@ public class Main {
         System.out.println(card.getRarity());
 
         // ask user if they want to reveal the rarity of their card
-        System.out.println("Would you like to reveal your card? (Y/N): ");
-        String showRarity = rarityScanner.nextLine();
+        String showRarity = nanobot.revealCard(scanner);
 
-        if (showRarity == "Y" | showRarity == "y") {
-            // exception handling
-            try {
-                // Tell the user what rarity of card they got based on the random number
-                if (card.getRarity() == 0) {
-                    System.out.println("Your Nano Bot, " + nanobot.getName() + ", has printed a " + cardRarity.get(0) + " card!");
-                } else if (card.getRarity() == 1) {
-                    System.out.println("Your Nano Bot, " + nanobot.getName() + ", has printed a " + cardRarity.get(1) + " card!");
-                } else if (card.getRarity() == 2) {
-                    System.out.println("Your Nano Bot, " + nanobot.getName() + ", has printed a " + cardRarity.get(2) + " card!");
-                } else {
-                    System.out.println("Your Nano Bot, " + nanobot.getName() + ", has printed a " + cardRarity.get(3) + " card!");
-                }
-            } catch (Exception e) {
-                System.out.println("Something went wrong");
-            }
-        }
-        else if (showRarity == "N" | showRarity == "n") {
+        if (showRarity.equalsIgnoreCase("y")) {
+            // Tell the user what rarity of card they got based on the random number
+            System.out.println("Your Nano Bot, " + nanobot.getName() + ", has printed a " + cardRarity.get(card.getRarity()) + " card!");
+        } else if (showRarity.equalsIgnoreCase("n")) {
             System.out.println("Suit yourself...");
-        }
-        else {
+        } else {
             System.out.println("That's not a valid input, dum dum >:(");
         }
 

@@ -34,7 +34,7 @@ public class Nanobot {
     }
 
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -51,12 +51,16 @@ public class Nanobot {
     }
 
 
-    public void newName() {
+    public void newName(Scanner scanner) {
         System.out.println("Please name your Nano Bot: ");
         String newName = scanner.nextLine();
         System.out.println("You have named your Nano Bot: " + newName);
         setName(newName);
-        scanner.close();
+    }
+
+    public String revealCard(Scanner scanner) {
+        System.out.println("Would you like to reveal your card? (Y/N): ");
+        return scanner.nextLine();
     }
 
     public void createCard() {
